@@ -14,9 +14,9 @@ class JSTokenParser extends \Twig_TokenParser
      *
      * @param \Twig_Token $token
      *
-     * @return \Twig_NodeInterface
-     *
      * @throws \Twig_Error_Syntax
+     *
+     * @return \Twig_NodeInterface
      */
     public function parse(\Twig_Token $token)
     {

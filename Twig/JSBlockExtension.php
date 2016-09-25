@@ -10,7 +10,7 @@ use Fousky\JSBlockBundle\Twig\TokenParser\JSTokenParser;
 class JSBlockExtension extends \Twig_Extension
 {
     /** @var array $collected */
-    protected $collected = array();
+    protected $collected = [];
 
     /** @var bool $lock */
     protected $lock = false;
@@ -22,13 +22,13 @@ class JSBlockExtension extends \Twig_Extension
      */
     public function getTokenParsers()
     {
-        return array(
+        return [
             new JSTokenParser(), // {% jsblock %}
-        );
+        ];
     }
 
     /**
-     * Render collected javascripts (should be before tag </body>)
+     * Render collected javascripts (should be before tag </body>).
      *
      * {% jsblock 'render' %}
      *
@@ -36,11 +36,11 @@ class JSBlockExtension extends \Twig_Extension
      */
     public function render()
     {
-        return implode("\n    ", $this->collected) . "\n";
+        return implode("\n    ", $this->collected)."\n";
     }
 
     /**
-     * Start collecting of some javascripts
+     * Start collecting of some javascripts.
      *
      * {% jsblock 'start' %}
      *
@@ -57,7 +57,7 @@ class JSBlockExtension extends \Twig_Extension
     }
 
     /**
-     * Finish collecting of javascripts
+     * Finish collecting of javascripts.
      *
      * {% jsblock 'stop' %}
      */

@@ -9,16 +9,16 @@ class JSNode extends \Twig_Node
 {
     /**
      * @param \Twig_Node $method
-     * @param int $lineno
-     * @param null $tag
+     * @param int        $lineno
+     * @param null       $tag
      */
     public function __construct(\Twig_Node $method, $lineno = 0, $tag = null)
     {
-        parent::__construct(array('method' => $method), array(), $lineno, $tag);
+        parent::__construct(['method' => $method], [], $lineno, $tag);
     }
 
     /**
-     * Kompilování
+     * Kompilování.
      *
      * @param \Twig_Compiler A Twig_Compiler instance
      */
@@ -28,7 +28,6 @@ class JSNode extends \Twig_Node
             ->addDebugInfo($this)
             ->write("print \$this->env->getExtension('fousky_js_block_extension')->")
             ->raw($this->getNode('method')->getAttribute('value'))
-            ->raw("();\n")
-        ;
+            ->raw("();\n");
     }
 }
