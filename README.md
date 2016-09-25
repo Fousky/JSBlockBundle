@@ -3,6 +3,8 @@ JSBlockBundle
 
 The Symfony JSBlockBundle gives you a chance to collect javascript across all **TWIG templates (e.g. forms)** and render them at the end of your layout (or anywhere you want them).
 
+[![Build Status](https://travis-ci.org/Fousky/JSBlockBundle.svg?branch=master)](https://travis-ci.org/Fousky/JSBlockBundle)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Fousky/JSBlockBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Fousky/JSBlockBundle/?branch=master)
 
 #### 1. Install it by composer
 ```
