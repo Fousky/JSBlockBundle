@@ -1,0 +1,6 @@
+services:
+    fousky.jsblock.extension:
+        class: Fousky\JSBlockBundle\Twig\JSBlockExtension
+        public: false
+        tags:
+            - { name: twig.extension }
