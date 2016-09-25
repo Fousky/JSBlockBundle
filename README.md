@@ -41,9 +41,11 @@ Of course you can put this tag anywhere you want to render collected javascripts
 </head>
 <body>
 
-<!-- APPLICATION LOGIN -->
+<!-- APPLICATION LOGIC -->
 
+<!-- render collected javascripts -->
 {% jsblock 'render' %}
+
 </body>
 </html>
 ```
