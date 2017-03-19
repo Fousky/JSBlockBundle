@@ -26,7 +26,7 @@ class JSNode extends \Twig_Node
     {
         $compiler
             ->addDebugInfo($this)
-            ->write("print \$this->env->getExtension('fousky_js_block_extension')->")
+            ->write("print \$this->env->getExtension('Fousky\\JSBlockBundle\\Twig\\JSBlockExtension')->")
             ->raw($this->getNode('method')->getAttribute('value'))
             ->raw("();\n");
     }

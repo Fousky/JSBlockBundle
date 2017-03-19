@@ -67,12 +67,4 @@ class JSBlockExtension extends \Twig_Extension
         $this->lock = false;
         $this->collected[] = $data;
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'fousky_js_block_extension';
-    }
 }
