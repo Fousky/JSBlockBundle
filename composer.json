@@ -11,9 +11,9 @@
         }
     ],
     "require": {
-        "php": ">=5.3.9",
-        "symfony/symfony": "~2.7|~3.0",
-        "twig/twig": "^2.0"
+        "php": ">=7",
+        "symfony/symfony": "^3",
+        "twig/twig": "^2"
     },
     "autoload": {
         "psr-4": { "Fousky\\JSBlockBundle\\": "" }
