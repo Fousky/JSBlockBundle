@@ -7,12 +7,12 @@
     "authors": [
         {
             "name": "Lukáš Brzák",
-            "email": "lukas.brzak@email.cz"
+            "email": "lukas.brzak@fousky.cz"
         }
     ],
     "require": {
         "php": ">=7",
-        "symfony/symfony": "^3",
+        "symfony/symfony": "^3|^4",
         "twig/twig": "^2"
     },
     "autoload": {
