@@ -1,28 +1,21 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Fousky\JSBlockBundle\Twig\Node;
+
+use Twig\Compiler;
+use Twig\Node\Node;
 
 /**
  * @author Lukáš Brzák <lukas.brzak@email.cz>
  */
-class JSNode extends \Twig_Node
+class JSNode extends Node
 {
-    /**
-     * @param \Twig_Node $method
-     * @param int        $lineno
-     * @param null       $tag
-     */
-    public function __construct(\Twig_Node $method, $lineno = 0, $tag = null)
+    public function __construct(Node $method, $lineno = 0, $tag = null)
     {
         parent::__construct(['method' => $method], [], $lineno, $tag);
     }
 
-    /**
-     * Kompilování.
-     *
-     * @param \Twig_Compiler A Twig_Compiler instance
-     */
-    public function compile(\Twig_Compiler $compiler)
+    public function compile(Compiler $compiler)
     {
         $compiler
             ->addDebugInfo($this)

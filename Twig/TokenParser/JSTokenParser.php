@@ -1,36 +1,26 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Fousky\JSBlockBundle\Twig\TokenParser;
 
 use Fousky\JSBlockBundle\Twig\Node\JSNode;
+use Twig\Token;
+use Twig\TokenParser\AbstractTokenParser;
 
 /**
  * @author Lukáš Brzák <lukas.brzak@email.cz>
  */
-class JSTokenParser extends \Twig_TokenParser
+class JSTokenParser extends AbstractTokenParser
 {
-    /**
-     * Parses a token and returns a node.
-     *
-     * @param \Twig_Token $token
-     *
-     * @throws \Twig_Error_Syntax
-     *
-     * @return \Twig_Node
-     */
-    public function parse(\Twig_Token $token)
+    public function parse(Token $token)
     {
         $stream = $this->parser->getStream();
         $value = $this->parser->getExpressionParser()->parseExpression();
-        $stream->expect(\Twig_Token::BLOCK_END_TYPE);
+        $stream->expect(Token::BLOCK_END_TYPE);
 
         return new JSNode($value, $token->getLine(), $this->getTag());
     }
 
-    /**
-     * Gets the tag name associated with this token parser.
-     */
-    public function getTag()
+    public function getTag(): string
     {
         return 'jsblock';
     }

@@ -1,13 +1,14 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Fousky\JSBlockBundle\Twig;
 
 use Fousky\JSBlockBundle\Twig\TokenParser\JSTokenParser;
+use Twig\Extension\AbstractExtension;
 
 /**
  * @author Lukáš Brzák <lukas.brzak@email.cz>
  */
-class JSBlockExtension extends \Twig_Extension
+class JSBlockExtension extends AbstractExtension
 {
     /** @var array $collected */
     protected $collected = [];
@@ -15,37 +16,18 @@ class JSBlockExtension extends \Twig_Extension
     /** @var bool $lock */
     protected $lock = false;
 
-    /**
-     * Returns the token parser instance to add to the existing list.
-     *
-     * @return array An array of Twig_TokenParser instances
-     */
-    public function getTokenParsers()
+    public function getTokenParsers(): array
     {
         return [
             new JSTokenParser(), // {% jsblock %}
         ];
     }
 
-    /**
-     * Render collected javascripts (should be before tag </body>).
-     *
-     * {% jsblock 'render' %}
-     *
-     * @return string
-     */
-    public function render()
+    public function render(): string
     {
         return implode("\n    ", $this->collected)."\n";
     }
 
-    /**
-     * Start collecting of some javascripts.
-     *
-     * {% jsblock 'start' %}
-     *
-     * @throws \BadFunctionCallException
-     */
     public function start()
     {
         if ($this->lock) {
@@ -56,11 +38,6 @@ class JSBlockExtension extends \Twig_Extension
         \ob_start();
     }
 
-    /**
-     * Finish collecting of javascripts.
-     *
-     * {% jsblock 'stop' %}
-     */
     public function stop()
     {
         $data = \ob_get_clean();

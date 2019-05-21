@@ -11,8 +11,7 @@
         }
     ],
     "require": {
-        "php": ">=7",
-        "symfony/symfony": "^3|^4",
+        "php": ">=7.2",
         "twig/twig": "^2"
     },
     "autoload": {
