@@ -5,9 +5,6 @@ namespace Fousky\JSBlockBundle\Twig;
 use Fousky\JSBlockBundle\Twig\TokenParser\JSTokenParser;
 use Twig\Extension\AbstractExtension;
 
-/**
- * @author Lukáš Brzák <lukas.brzak@email.cz>
- */
 class JSBlockExtension extends AbstractExtension
 {
     /** @var array $collected */
@@ -28,7 +25,7 @@ class JSBlockExtension extends AbstractExtension
         return implode("\n    ", $this->collected)."\n";
     }
 
-    public function start()
+    public function start(): void
     {
         if ($this->lock) {
             throw new \BadFunctionCallException('Cannot use {% jsblock \'start\' %} inside multiple nesting level.');
@@ -38,7 +35,7 @@ class JSBlockExtension extends AbstractExtension
         \ob_start();
     }
 
-    public function stop()
+    public function stop(): void
     {
         $data = \ob_get_clean();
         $this->lock = false;

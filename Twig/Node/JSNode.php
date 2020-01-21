@@ -5,9 +5,6 @@ namespace Fousky\JSBlockBundle\Twig\Node;
 use Twig\Compiler;
 use Twig\Node\Node;
 
-/**
- * @author Lukáš Brzák <lukas.brzak@email.cz>
- */
 class JSNode extends Node
 {
     public function __construct(Node $method, $lineno = 0, $tag = null)

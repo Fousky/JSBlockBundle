@@ -6,9 +6,6 @@ use Fousky\JSBlockBundle\Twig\Node\JSNode;
 use Twig\Token;
 use Twig\TokenParser\AbstractTokenParser;
 
-/**
- * @author Lukáš Brzák <lukas.brzak@email.cz>
- */
 class JSTokenParser extends AbstractTokenParser
 {
     public function parse(Token $token)
